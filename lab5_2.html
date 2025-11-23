@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Завдання 2 — Моісейченкова Анастасія ПП-22</title>
+<style>
+body { font-family: Arial; padding: 20px; }
+textarea { width: 100%; height: 120px; }
+pre { background: #f3e6ff; padding: 10px; }
+button { margin: 5px; }
+</style>
+</head>
+<body>
+
+<h2>Завдання 2</h2>
+
+<textarea id="inp"></textarea><br><br>
+
+<button onclick="trimSpaces()">Прибрати зайві пробіли</button>
+<button onclick="countWords()">Порахувати слова</button>
+<button onclick="reverseStr()">Перевернути</button>
+<button onclick="toUpper()">UPPERCASE</button>
+<button onclick="toLower()">lowercase</button>
+<button onclick="location.href='lab5_index.html'">Назад</button>
+
+<pre id="out"></pre>
+
+<script>
+function trimSpaces() {
+    let s = inp.value.trim().replace(/\s+/g, " ");
+    out.textContent = s;
+}
+function countWords() {
+    let s = inp.value.trim().replace(/\s+/g, " ");
+    let arr = s ? s.split(" ") : [];
+    out.textContent = "Кількість слів: " + arr.length;
+}
+function reverseStr() {
+    out.textContent = inp.value.split("").reverse().join("");
+}
+function toUpper() {
+    out.textContent = inp.value.toUpperCase();
+}
+function toLower() {
+    out.textContent = inp.value.toLowerCase();
+}
+</script>
+
+</body>
+</html>
