@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Завдання 3 — Моісейченкова Анастасія ПП-22</title>
+<style>
+body { font-family: Arial; padding: 20px; }
+textarea { width: 100%; height: 120px; }
+pre { background: #f3e6ff; padding: 10px; }
+button { margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<h2>Завдання 3 — Шифрування "буква → наступна"</h2>
+
+<textarea id="inp"></textarea><br><br>
+
+<button onclick="encrypt()">Зашифрувати</button>
+<button onclick="decrypt()">Розшифрувати</button>
+<button onclick="location.href='lab5_index.html'">Назад</button>
+
+<pre id="out"></pre>
+
+<script>
+const ALF = "абвгґдеєжзииіїйклмнопрстуфхцчшщьюя";
+const ALF_U = ALF.toUpperCase();
+
+function shift(char, step) {
+    let idx = ALF.indexOf(char);
+    if (idx !== -1) return ALF[(idx + step + ALF.length) % ALF.length];
+
+    let idx2 = ALF_U.indexOf(char);
+    if (idx2 !== -1) return ALF_U[(idx2 + step + ALF_U.length) % ALF_U.length];
+
+    return char;
+}
+
+function encrypt() {
+    let outStr = "";
+    for (let c of inp.value) outStr += shift(c, 1);
+    out.textContent = outStr;
+}
+
+function decrypt() {
+    let outStr = "";
+    for (let c of inp.value) outStr += shift(c, -1);
+    out.textContent = outStr;
+}
+</script>
+
+</body>
+</html>
