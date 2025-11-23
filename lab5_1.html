@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Завдання 1 — Моісейченкова Анастасія ПП-22</title>
+<style>
+body { font-family: Arial; padding: 20px; }
+textarea { width: 100%; height: 120px; }
+pre { background: #f3e6ff; padding: 10px; }
+button { margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<h2>Завдання 1</h2>
+<p>Після кожної коми вставити пробіл і підрахувати кількість букв A та B.</p>
+
+<textarea id="inp"></textarea><br><br>
+<button onclick="run()">Виконати</button>
+<button onclick="location.href='lab5_index.html'">Назад</button>
+
+<pre id="out"></pre>
+
+<script>
+function run() {
+    let s = document.getElementById("inp").value;
+
+    let fixed = s.replace(/,(\S)/g, ", $1");
+
+    let upper = fixed.toUpperCase();
+    let countA = 0, countB = 0;
+
+    for (let ch of upper) {
+        if (ch === 'A') countA++;
+        if (ch === 'B') countB++;
+    }
+
+    document.getElementById("out").textContent =
+        "Результат:\n" + fixed +
+        "\n\nA: " + countA + "\nB: " + countB;
+}
+</script>
+
+</body>
+</html>
